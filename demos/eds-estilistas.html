@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EDS Estilistas | Peluquería en Boadilla del Monte</title>
+    <meta name="description" content="Peluquería y salón de estilismo en Boadilla del Monte. Cortes, color, tratamientos capilares y belleza. Reserva tu cita en EDS Estilistas.">
+    <style>
+        :root {
+            --primary: #1a1a1a;
+            --accent: #c5a059;
+            --accent-light: #dfc285;
+            --bg-light: #f9f8f6;
+            --white: #ffffff;
+            --text-main: #333333;
+            --text-muted: #666666;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            color: var(--text-main);
+            background-color: var(--white);
+            line-height: 1.6;
+        }
+
+        /* Utility classes */
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        .section-padding {
+            padding: 5rem 0;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .subtitle {
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .title {
+            font-size: 2.25rem;
+            color: var(--primary);
+            margin-bottom: 3rem;
+            font-weight: 300;
+        }
+
+        .title span {
+            font-weight: 600;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 0.875rem 2rem;
+            border-radius: 4px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: var(--transition);
+            cursor: pointer;
+            border: none;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background-color: var(--accent);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--accent-light);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--white);
+            border: 2px solid var(--white);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--white);
+            color: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        /* Header & Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(26, 26, 26, 0.95);
+            backdrop-filter: blur(5px);
+            z-index: 1000;
+            transition: var(--transition);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--white);
+            text-decoration: none;
+            letter-spacing: 2px;
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        .phone-nav {
+            color: var(--accent) !important;
+            font-weight: 600;
+        }
+
+        .menu-toggle {
+            display: none;
+            cursor: pointer;
+            background: none;
+            border: none;
+            color: var(--white);
+            font-size: 1.5rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect fill="%23111" width="100" height="100"/></svg>');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: var(--white);
+            padding-top: 80px;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 300;
+            margin-bottom: 1rem;
+            letter-spacing: 1px;
+        }
+
+        .hero h1 span {
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2.5rem;
+            color: #e0e0e0;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* About Section */
+        .about {
+            background-color: var(--bg-light);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-image {
+            background-color: #ddd;
+            height: 400px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            font-style: italic;
+            /* Placeholder background pattern */
+            background-image: linear-gradient(45deg, #e6e4e0 25%, transparent 25%), linear-gradient(-45deg, #e6e4e0 25%, transparent 25%), linear-gradient(45deg, transparent 75%, #e6e4e0 75%), linear-gradient(-45deg, transparent 75%, #e6e4e0 75%);
+            background-size: 20px 20px;
+            background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+        }
+
+        .about-text h3 {
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            font-weight: 400;
+        }
+
+        .about-text p {
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+        }
+
+        /* Benefits Section */
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .benefit-card {
+            padding: 2.5rem 2rem;
+            background: var(--white);
+            border: 1px solid #eaeaea;
+            border-radius: 8px;
+            transition: var(--transition);
+            text-align: center;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border-color: var(--accent);
+        }
+
+        .benefit-icon {
+            font-size: 2.5rem;
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+        }
+
+        .benefit-card h4 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .benefit-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* Services Section */
+        .services {
+            background-color: var(--bg-light);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        }
+
+        .service-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 1rem;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 1rem;
+        }
+
+        .service-title {
+            font-size: 1.25rem;
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .service-price {
+            font-size: 1.1rem;
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        .service-desc {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Gallery Section */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .gallery-item {
+            height: 280px;
+            background-color: #e0e0e0;
+            border-radius: 8px;
+            overflow: hidden;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            background-image: linear-gradient(135deg, #f5f3ef 25%, #eae6de 25%), linear-gradient(225deg, #f5f3ef 25%, #eae6de 25%), linear-gradient(315deg, #f5f3ef 25%, #eae6de 25%), linear-gradient(45deg, #f5f3ef 25%, #eae6de 25%);
+            background-size: 40px 40px;
+            background-position: 20px 0, 20px 20px, 0 20px, 0 0;
+        }
+
+        .gallery-item span {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            background-color: var(--bg-light);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .testimonial-card {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+            position: relative;
+        }
+
+        .stars {
+            color: var(--accent);
+            margin-bottom: 1rem;
+            letter-spacing: 2px;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--primary);
+            font-size: 0.9rem;
+        }
+
+        .editable-note {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            text-align: center;
+            margin-top: 2rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Location & Contact Section */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .contact-item h4 {
+            font-size: 1.1rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .contact-item p {
+            color: var(--text-muted);
+        }
+
+        .contact-item a {
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .contact-item a:hover {
+            color: var(--accent);
+        }
+
+        .map-container {
+            width: 100%;
+            height: 400px;
+            background-color: #eee;
+            border-radius: 8px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            border: 1px solid #ddd;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .footer-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+
+        .footer-logo span {
+            color: var(--accent);
+        }
+
+        .footer-text {
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+
+        .copyright {
+            font-size: 0.8rem;
+            color: #666;
+            border-top: 1px solid #333;
+            width: 100%;
+            padding-top: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 968px) {
+            .about-grid,
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .hero h1 {
+                font-size: 2.75rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+
+            .nav-links {
+                position: absolute;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background-color: var(--primary);
+                flex-direction: column;
+                align-items: center;
+                padding: 2rem 0;
+                gap: 1.5rem;
+                clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+                transition: clip-path 0.4s ease-in-out;
+            }
+
+            .nav-links.active {
+                clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+            }
+
+            .hero h1 {
+                font-size: 2.25rem;
+            }
+
+            .title {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container nav-container">
+            <a href="#" class="logo">EDS <span>Estilistas</span></a>
+            <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">☰</button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#about">Sobre Nosotros</a></li>
+                <li><a href="#services">Servicios</a></li>
+                <li><a href="#gallery">Galería</a></li>
+                <li><a href="#contact">Ubicación</a></li>
+                <li><a href="tel:916339292" class="phone-nav">📞 916 33 92 92</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container hero-content">
+            <h1>Tu salón de belleza en <span>Boadilla del Monte</span></h1>
+            <p>Especialistas en imagen personal, cortes de tendencia y tratamientos capilares avanzados diseñados exclusivamente para ti.</p>
+            <div class="hero-buttons">
+                <a href="tel:916339292" class="btn btn-primary">Reservar Cita</a>
+                <a href="#services" class="btn btn-outline">Ver Servicios</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section-padding about">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-image">
+                    <span>[ Imagen del Salón / Espacio ]</span>
+                </div>
+                <div class="about-text">
+                    <div class="subtitle">Sobre Nosotros</div>
+                    <h3>Pasión por el cuidado de tu cabello y tu imagen</h3>
+                    <p>En <strong>EDS Estilistas</strong> combinamos las últimas tendencias en peluquería con un trato cercano y personalizado. Nuestro equipo de profesionales está en constante formación para ofrecerte resultados excepcionales que potencien tu belleza natural.</p>
+                    <p>Cuidamos cada detalle en nuestro salón situado en Boadilla del Monte para que disfrutes de una experiencia de bienestar única y relajante.</p>
+                    <a href="tel:916339292" class="btn btn-primary">Llámanos</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="text-center">
+                <div class="subtitle">Por qué elegirnos</div>
+                <h2 class="title">La experiencia <span>EDS Estilistas</span></h2>
+            </div>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">✨</div>
+                    <h4>Asesoramiento Personalizado</h4>
+                    <p>Estudiamos tus rasgos y tipo de cabello para recomendarte el corte y color que mejor se adapten a tu estilo de vida.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">🌿</div>
+                    <h4>Productos Premium</h4>
+                    <p>Trabajamos exclusivamente con marcas de alta gama que respetan y cuidan la salud capilar a largo plazo.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">✂️</div>
+                    <h4>Profesionales Expertos</h4>
+                    <p>Equipo altamente cualificado con años de experiencia en las técnicas de peluquería más vanguardistas.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="section-padding services">
+        <div class="container">
+            <div class="text-center">
+                <div class="subtitle">Nuestros Servicios</div>
+                <h2 class="title">Tarifa de <span>Servicios</span></h2>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div>
+                        <div class="service-header">
+                            <span class="service-title">Corte y Peinado</span>
+                            <span class="service-price">Desde 35€</span>
+                        </div>
+                        <p class="service-desc">Incluye diagnóstico personalizado, lavado con productos específicos, corte adaptado y acabado profesional.</p>
+                    </div>
+                    <a href="tel:916339292" class="btn btn-primary text-center">Consultar / Reservar</a>
+                </div>
+                <div class="service-card">
+                    <div>
+                        <div class="service-header">
+                            <span class="service-title">Color y Mechas</span>
+                            <span class="service-price">Desde 50€</span>
+                        </div>
+                        <p class="service-desc">Técnicas avanzadas de coloración, balayage, mechas babylights y cobertura de canas con máxima hidratación.</p>
+                    </div>
+                    <a href="tel:916339292" class="btn btn-primary text-center">Consultar / Reservar</a>
+                </div>
+                <div class="service-card">
+                    <div>
+                        <div class="service-header">
+                            <span class="service-title">Tratamientos Capilares</span>
+                            <span class="service-price">Desde 40€</span>
+                        </div>
+                        <p class="service-desc">Rituales de nutrición profunda, hidratación, reconstrucción de keratina y salud para el cuero cabelludo.</p>
+                    </div>
+                    <a href="tel:916339292" class="btn btn-primary text-center">Consultar / Reservar</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="section-padding">
+        <div class="container">
+            <div class="text-center">
+                <div class="subtitle">Trabajos Recientes</div>
+                <h2 class="title">Nuestra <span>Galería</span></h2>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <span>[ Foto Corte Bob ]</span>
+                </div>
+                <div class="gallery-item">
+                    <span>[ Foto Balayage ]</span>
+                </div>
+                <div class="gallery-item">
+                    <span>[ Foto Recogido ]</span>
+                </div>
+                <div class="gallery-item">
+                    <span>[ Foto Coloración ]</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="section-padding testimonials">
+        <div class="container">
+            <div class="text-center">
+                <div class="subtitle">Opiniones</div>
+                <h2 class="title">Lo que dicen <span>Nuestros Clientes</span></h2>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">"Trato excelente y muy profesional. Saben perfectamente qué corte me sienta bien y el color ha quedado natural y brillante. Totalmente recomendable."</p>
+                    <div class="testimonial-author">— Ejemplo de Cliente A.</div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">"El mejor salón de Boadilla sin duda. Utilizan productos de gran calidad y el ambiente es muy acogedor. Salgo encantada siempre."</p>
+                    <div class="testimonial-author">— Ejemplo de Cliente B.</div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">"Puntualidad, amabilidad y grandes profesionales. Me hicieron un tratamiento de hidratación que ha revivido mi pelo por completo."</p>
+                    <div class="testimonial-author">— Ejemplo de Cliente C.</div>
+                </div>
+            </div>
+            <p class="editable-note">* Nota: Las opiniones anteriores son ejemplos editables para ilustrar la sección.</p>
+        </div>
+    </section>
+
+    <!-- Location & Contact Section -->
+    <section id="contact" class="section-padding">
+        <div class="container">
+            <div class="text-center">
+                <div class="subtitle">Encuéntranos</div>
+                <h2 class="title">Visítanos en <span>Boadilla del Monte</span></h2>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <h4>📍 Dirección</h4>
+                        <p>Boadilla del Monte, Madrid<br><small class="editable-note" style="text-align: left; margin: 0;">(Dirección exacta editable)</small></p>
+                    </div>
+                    <div class="contact-item">
+                        <h4>📞 Teléfono de Citas</h4>
+                        <p><a href="tel:916339292">916 33 92 92</a></p>
+                    </div>
+                    <div class="contact-item">
+                        <h4>🕒 Horario Comercial</h4>
+                        <p>Lunes a Sábado: Horario orientativo editable<br>Domingos: Cerrado</p>
+                    </div>
+                    <div>
+                        <a href="tel:916339292" class="btn btn-primary">Llamar Ahora para Reservar</a>
+                    </div>
+                </div>
+                <div class="map-container">
+                    <span>[ Mapa de Ubicación - Boadilla del Monte ]</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-logo">EDS <span>Estilistas</span></div>
+            <p class="footer-text">Tu salón de confianza en Boadilla del Monte.</p>
+            <p class="copyright">&copy; <span id="currentYear"></span> EDS Estilistas. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Simple Script for Mobile Menu & Year -->
+    <script>
+        // Mobile Menu Toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Close menu when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Current Year for Footer
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
