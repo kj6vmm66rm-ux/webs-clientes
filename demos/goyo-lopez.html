@@ -4,23 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Goyo López | Peluquería y Barbería en Boadilla del Monte</title>
-    <meta name="description" content="Peluquería y barbería de confianza en Boadilla del Monte. Estilo, cuidado y tendencia para el hombre y la mujer actual. Reserva tu cita.">
+    <meta name="description" content="Salón de peluquería y barbería Goyo López en Boadilla del Monte. Cortes de pelo, cuidado de barba y estilismo profesional. Pide tu cita por teléfono.">
     <style>
         :root {
-            --primary: #c5a059;
-            --primary-dark: #a38142;
-            --dark: #121212;
-            --dark-surface: #1e1e1e;
-            --dark-card: #282828;
-            --light: #f4f4f4;
-            --gray: #888888;
+            --primary: #121212;
+            --secondary: #c5a059;
+            --secondary-dark: #a38242;
+            --light: #f9f9f9;
+            --white: #ffffff;
+            --gray: #777777;
+            --gray-light: #eeeeee;
             --transition: all 0.3s ease;
         }
 
         * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
         }
 
         html {
@@ -28,9 +28,9 @@
         }
 
         body {
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            background-color: var(--dark);
-            color: var(--light);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            color: var(--primary);
+            background-color: var(--white);
             line-height: 1.6;
         }
 
@@ -43,209 +43,166 @@
             list-style: none;
         }
 
-        /* UTILITIES */
-        .container {
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 1.5rem;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 2.25rem;
-            margin-bottom: 1rem;
-            color: var(--light);
-            font-weight: 700;
-        }
-
-        .section-subtitle {
-            text-align: center;
-            color: var(--primary);
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            font-size: 0.875rem;
-            margin-bottom: 3rem;
-            font-weight: 600;
-        }
-
-        .btn {
-            display: inline-block;
-            background-color: var(--primary);
-            color: var(--dark);
-            padding: 0.875rem 2rem;
-            border-radius: 4px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: var(--transition);
-            border: none;
-            cursor: pointer;
-        }
-
-        .btn:hover {
-            background-color: var(--primary-dark);
-            transform: translateY(-2px);
-        }
-
-        .btn-outline {
-            background-color: transparent;
-            border: 2px solid var(--primary);
-            color: var(--primary);
-        }
-
-        .btn-outline:hover {
-            background-color: var(--primary);
-            color: var(--dark);
-        }
-
-        /* HEADER & NAV */
+        /* Header */
         header {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             background-color: rgba(18, 18, 18, 0.95);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .nav-container {
+            backdrop-filter: blur(5px);
+            color: var(--white);
             display: flex;
             justify-content: space-between;
             align-items: center;
-            height: 80px;
+            padding: 1rem 5%;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
         }
 
         .logo {
             font-size: 1.5rem;
             font-weight: 700;
             letter-spacing: 1px;
-            color: var(--light);
+            color: var(--white);
         }
 
         .logo span {
-            color: var(--primary);
+            color: var(--secondary);
         }
 
-        .nav-menu {
+        nav ul {
             display: flex;
-            gap: 2rem;
-            align-items: center;
+            gap: 1.5rem;
         }
 
-        .nav-link {
+        nav a {
             font-size: 0.95rem;
             transition: var(--transition);
-            color: var(--light);
         }
 
-        .nav-link:hover {
+        nav a:hover {
+            color: var(--secondary);
+        }
+
+        .nav-phone {
+            background-color: var(--secondary);
             color: var(--primary);
-        }
-
-        .phone-btn {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            background: var(--dark-card);
             padding: 0.5rem 1rem;
-            border-radius: 50px;
-            border: 1px solid rgba(197, 160, 89, 0.3);
-            color: var(--primary);
+            border-radius: 4px;
             font-weight: 600;
-        }
-
-        .hamburger {
             display: none;
-            cursor: pointer;
-            background: none;
-            border: none;
-            color: var(--light);
-            font-size: 1.5rem;
         }
 
-        /* HERO SECTION */
+        @media (min-width: 768px) {
+            .nav-phone {
+                display: inline-block;
+            }
+        }
+
+        /* Hero */
         .hero {
             height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
             display: flex;
+            flex-direction: column;
+            justify-content: center;
             align-items: center;
-            background: linear-gradient(rgba(18, 18, 18, 0.7), rgba(18, 18, 18, 0.9)), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect fill="%23121212" width="100" height="100"/><circle fill="%231e1e1e" cx="50" cy="50" r="40"/></svg>');
-            background-size: cover;
-            background-position: center;
             text-align: center;
-            padding-top: 80px;
-        }
-
-        .hero-content {
-            max-width: 800px;
-            margin: 0 auto;
+            color: var(--white);
+            padding: 0 1rem;
+            margin-top: 0;
         }
 
         .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 1.5rem;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
             font-weight: 800;
-            line-height: 1.2;
+            letter-spacing: 1px;
         }
 
         .hero h1 span {
-            color: var(--primary);
+            color: var(--secondary);
         }
 
         .hero p {
             font-size: 1.2rem;
+            max-width: 600px;
+            margin-bottom: 2rem;
+            color: #ddd;
+        }
+
+        .btn {
+            background-color: var(--secondary);
+            color: var(--primary);
+            padding: 0.8rem 2rem;
+            border-radius: 4px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: var(--transition);
+            display: inline-block;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: var(--secondary-dark);
+            color: var(--white);
+            transform: translateY(-2px);
+        }
+
+        /* Sections General */
+        section {
+            padding: 5rem 5%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 3px;
+            background-color: var(--secondary);
+        }
+
+        .section-title p {
             color: var(--gray);
-            margin-bottom: 2.5rem;
+            font-size: 1rem;
+            margin-top: 1rem;
         }
 
-        .hero-buttons {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
+        /* About */
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            font-size: 1.1rem;
+            color: #444;
         }
 
-        /* ABOUT SECTION */
-        .about {
-            padding: 7rem 0;
-            background-color: var(--dark-surface);
-        }
-
-        .about-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-        }
-
-        .about-text h2 {
-            font-size: 2.25rem;
+        .about-content p {
             margin-bottom: 1.5rem;
-            line-height: 1.3;
         }
 
-        .about-text p {
-            color: var(--gray);
-            margin-bottom: 1.5rem;
-        }
-
-        .about-img {
-            background-color: var(--dark-card);
-            height: 400px;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 2px dashed rgba(197, 160, 89, 0.3);
-            color: var(--gray);
-            font-style: italic;
-        }
-
-        /* SERVICES SECTION */
+        /* Services */
         .services {
-            padding: 7rem 0;
+            background-color: var(--light);
         }
 
         .services-grid {
@@ -254,227 +211,206 @@
             gap: 2rem;
         }
 
-        .service-card {
-            background-color: var(--dark-surface);
-            padding: 2.5rem 2rem;
+        .card {
+            background-color: var(--white);
             border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
             transition: var(--transition);
-            border-bottom: 3px solid transparent;
+            border: 1px solid var(--gray-light);
         }
 
-        .service-card:hover {
+        .card:hover {
             transform: translateY(-5px);
-            border-color: var(--primary);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
         }
 
-        .service-card h3 {
-            font-size: 1.25rem;
-            margin-bottom: 1rem;
-            color: var(--light);
+        .card-img {
+            height: 200px;
+            width: 100%;
+            object-fit: cover;
         }
 
-        .service-card p {
+        .card-body {
+            padding: 1.5rem;
+        }
+
+        .card-body h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+
+        .card-body p {
             color: var(--gray);
             font-size: 0.95rem;
-            margin-bottom: 1.5rem;
         }
 
-        .service-price {
-            font-size: 1.25rem;
-            color: var(--primary);
-            font-weight: 700;
-        }
-
-        /* BENEFITS SECTION */
-        .benefits {
-            padding: 5rem 0;
-            background-color: var(--dark-surface);
-            border-top: 1px solid rgba(255,255,255,0.05);
-            border-bottom: 1px solid rgba(255,255,255,0.05);
-        }
-
-        .benefits-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2.5rem;
-            text-align: center;
-        }
-
-        .benefit-item h4 {
-            font-size: 1.1rem;
-            margin-bottom: 0.5rem;
-            color: var(--light);
-        }
-
-        .benefit-item p {
-            color: var(--gray);
-            font-size: 0.9rem;
-        }
-
-        .benefit-icon {
-            font-size: 2rem;
-            color: var(--primary);
-            margin-bottom: 1rem;
-        }
-
-        /* GALLERY SECTION */
-        .gallery {
-            padding: 7rem 0;
-        }
-
+        /* Gallery */
         .gallery-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 1.5rem;
         }
 
         .gallery-item {
-            background-color: var(--dark-surface);
-            height: 280px;
+            height: 250px;
             border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--gray);
-            border: 1px solid rgba(255,255,255,0.05);
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
             transition: var(--transition);
         }
 
-        .gallery-item:hover {
-            border-color: var(--primary);
+        .gallery-item img:hover {
+            transform: scale(1.05);
         }
 
-        /* TESTIMONIALS SECTION */
-        .testimonials {
-            padding: 7rem 0;
-            background-color: var(--dark-surface);
+        .gallery-note {
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--gray);
+            margin-top: 1rem;
         }
 
-        .testimonials-grid {
+        /* Advantages */
+        .advantages {
+            background-color: var(--primary);
+            color: var(--white);
+        }
+
+        .advantages .section-title h2 {
+            color: var(--white);
+        }
+
+        .advantages-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 2rem;
+            text-align: center;
         }
 
-        .testimonial-card {
-            background-color: var(--dark-card);
-            padding: 2.5rem;
+        .advantage-item {
+            padding: 2rem 1rem;
+            background: rgba(255,255,255,0.05);
             border-radius: 8px;
-            position: relative;
+            border: 1px solid rgba(255,255,255,0.1);
         }
 
-        .testimonial-card p {
-            color: var(--light);
-            font-style: italic;
-            margin-bottom: 1.5rem;
+        .advantage-item h3 {
+            color: var(--secondary);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .advantage-item p {
+            color: #ccc;
             font-size: 0.95rem;
         }
 
-        .testimonial-author {
-            font-weight: 600;
-            color: var(--primary);
-            font-size: 0.9rem;
+        /* Location */
+        .location-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
         }
 
-        .testimonial-tag {
-            display: inline-block;
-            font-size: 0.75rem;
-            background: rgba(197, 160, 89, 0.1);
-            color: var(--primary);
-            padding: 0.2rem 0.6rem;
-            border-radius: 4px;
+        @media (min-width: 768px) {
+            .location-container {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .location-info {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .location-info h3 {
+            font-size: 1.5rem;
             margin-bottom: 1rem;
         }
 
-        /* LOCATION & CONTACT */
-        .contact {
-            padding: 7rem 0;
+        .location-info p {
+            color: var(--gray);
+            margin-bottom: 1.5rem;
+        }
+
+        .map-frame {
+            width: 100%;
+            height: 350px;
+            border: 0;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        /* Contact & Hours */
+        .contact-section {
+            background-color: var(--light);
         }
 
         .contact-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            max-width: 900px;
+            margin: 0 auto;
         }
 
-        .contact-info h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .contact-detail {
-            display: flex;
-            align-items: flex-start;
-            gap: 1rem;
-            margin-bottom: 1.5rem;
-            color: var(--gray);
-        }
-
-        .contact-detail strong {
-            color: var(--light);
-            display: block;
-        }
-
-        .map-container {
-            background-color: var(--dark-surface);
-            height: 100%;
-            min-height: 350px;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--gray);
-            border: 1px solid rgba(255,255,255,0.05);
-            text-align: center;
+        .contact-card {
+            background-color: var(--white);
             padding: 2rem;
-        }
-
-        /* FOOTER */
-        footer {
-            background-color: var(--dark-surface);
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 3rem 0;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
             text-align: center;
-            color: var(--gray);
-            font-size: 0.9rem;
         }
 
-        footer p {
+        .contact-card h3 {
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .contact-card p, .contact-card ul {
+            color: var(--gray);
+            font-size: 0.95rem;
+        }
+
+        .contact-card ul li {
             margin-bottom: 0.5rem;
         }
 
-        /* RESPONSIVE */
-        @media (max-width: 992px) {
-            .about-grid, .contact-grid {
-                grid-template-columns: 1fr;
-                gap: 2.5rem;
-            }
-            .hero h1 {
-                font-size: 2.5rem;
-            }
+        .phone-big {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--secondary);
+            margin: 1rem 0;
+            display: inline-block;
         }
 
+        /* Footer */
+        footer {
+            background-color: var(--primary);
+            color: var(--white);
+            text-align: center;
+            padding: 2rem 5%;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        footer p {
+            font-size: 0.9rem;
+            color: #888;
+        }
+
+        /* Responsive adjustments */
         @media (max-width: 768px) {
-            .nav-menu {
-                display: none;
-                position: absolute;
-                top: 80px;
-                left: 0;
-                width: 100%;
-                background-color: var(--dark-surface);
-                flex-direction: column;
-                padding: 2rem;
-                text-align: center;
-                border-bottom: 1px solid rgba(255,255,255,0.1);
-            }
-            .nav-menu.active {
-                display: flex;
-            }
-            .hamburger {
-                display: block;
-            }
-            .phone-btn {
-                display: none;
+            nav ul {
+                display: none; /* Simplificado para móvil básico sin JS externo */
             }
             .hero h1 {
                 font-size: 2rem;
@@ -484,229 +420,162 @@
 </head>
 <body>
 
-    <!-- HEADER -->
+    <!-- 1. Cabecera -->
     <header>
-        <div class="container nav-container">
-            <a href="#" class="logo">GOYO <span>LÓPEZ</span></a>
-            
-            <nav>
-                <ul class="nav-menu" id="navMenu">
-                    <li><a href="#about" class="nav-link">Sobre Nosotros</a></li>
-                    <li><a href="#services" class="nav-link">Servicios</a></li>
-                    <li><a href="#gallery" class="nav-link">Galería</a></li>
-                    <li><a href="#testimonials" class="nav-link">Opiniones</a></li>
-                    <li><a href="#contact" class="nav-link">Contacto</a></li>
-                </ul>
-            </nav>
-
-            <a href="tel:916320412" class="phone-btn">
-                📞 916 32 04 12
-            </a>
-
-            <button class="hamburger" id="hamburgerBtn" aria-label="Menú">
-                ☰
-            </button>
-        </div>
+        <div class="logo">Goyo <span>López</span></div>
+        <nav>
+            <ul>
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#sobre-nosotros">Sobre nosotros</a></li>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#galeria">Galería</a></li>
+                <li><a href="#ubicacion">Ubicación</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+        <a href="tel:916320412" class="nav-phone">📞 916 32 04 12</a>
     </header>
 
-    <!-- HERO -->
-    <section class="hero">
-        <div class="container hero-content">
-            <h1>Peluquería y Barbería en <span>Boadilla del Monte</span></h1>
-            <p>Elegancia, estilo y cuidado personal adaptado a tu esencia. Profesionales dedicados a realzar tu mejor versión.</p>
-            <div class="hero-buttons">
-                <a href="tel:916320412" class="btn">Reservar Cita</a>
-                <a href="#services" class="btn btn-outline">Ver Servicios</a>
-            </div>
+    <!-- 2. Portada visual -->
+    <section id="inicio" class="hero">
+        <h1>Peluquería y Barbería <span>Goyo López</span></h1>
+        <p>Estilo, tradición y cuidado profesional para tu imagen en Boadilla del Monte.</p>
+        <a href="tel:916320412" class="btn">Pedir Cita Previa</a>
+    </section>
+
+    <!-- 3. Presentación del negocio -->
+    <section id="sobre-nosotros">
+        <div class="section-title">
+            <h2>Nuestra Esencia</h2>
+            <p>Profesionalidad y cercanía en Boadilla del Monte</p>
+        </div>
+        <div class="about-content">
+            <p>En <strong>Goyo López</strong> nos dedicamos al cuidado personal y la estética capilar masculina y general. Ponemos a tu disposición nuestra experiencia y dedicación para ofrecerte cortes actuales, clásicos y un cuidado de barba adaptado a tu estilo personal.</p>
+            <p>Nos encontramos en Boadilla del Monte, ofreciendo un trato cercano, profesional y en un ambiente cómodo pensado para que disfrutes de tu momento de cuidado personal.</p>
         </div>
     </section>
 
-    <!-- BENEFITS -->
-    <section class="benefits">
-        <div class="container">
-            <div class="benefits-grid">
-                <div class="benefit-item">
-                    <div class="benefit-icon">✂️</div>
-                    <h4>Maestría y Estilo</h4>
-                    <p>Años de experiencia cuidando la imagen de nuestros clientes.</p>
-                </div>
-                <div class="benefit-item">
-                    <div class="benefit-icon">🌿</div>
-                    <h4>Productos Premium</h4>
-                    <p>Cuidado capilar y de barba con marcas de máxima calidad.</p>
-                </div>
-                <div class="benefit-item">
-                    <div class="benefit-icon">☕</div>
-                    <h4>Ambiente Exclusivo</h4>
-                    <p>Un espacio diseñado para tu desconexión y bienestar.</p>
+    <!-- 4. Servicios en tarjetas visuales -->
+    <section id="servicios" class="services">
+        <div class="section-title">
+            <h2>Nuestros Servicios</h2>
+            <p>Cuidado y estilismo adaptado a ti</p>
+        </div>
+        <div class="services-grid">
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1599351431202-1e0f0137899a?auto=format&fit=crop&w=600&q=80" alt="Corte de Pelo" class="card-img">
+                <div class="card-body">
+                    <h3>Corte de Pelo</h3>
+                    <p>Cortes clásicos, modernos y tendencias actuales adaptados a la forma de tu rostro y tipo de cabello.</p>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- ABOUT US -->
-    <section class="about" id="about">
-        <div class="container">
-            <div class="about-grid">
-                <div class="about-text">
-                    <span class="section-subtitle" style="text-align: left; margin-bottom: 1rem; display: block;">Nuestra Esencia</span>
-                    <h2>Tradición y vanguardia en Boadilla</h2>
-                    <p>En Goyo López entendemos la peluquería y la barbería no solo como un servicio, sino como un ritual de cuidado personal. Combinamos las técnicas más clásicas con las últimas tendencias del sector.</p>
-                    <p>Cada cliente es único. Por ello, ofrecemos un asesoramiento personalizado para encontrar el corte, peinado o arreglo de barba que mejor se adapte a tu personalidad y estilo de vida.</p>
-                    <a href="tel:916320412" class="btn" style="margin-top: 1rem;">Llámanos</a>
-                </div>
-                <div class="about-img">
-                    [Espacio para Fotografía del Salón / Goyo López]
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SERVICES -->
-    <section class="services" id="services">
-        <div class="container">
-            <h2 class="section-title">Nuestros Servicios</h2>
-            <p class="section-subtitle">Calidad y detalle en cada acabado</p>
-            
-            <div class="services-grid">
-                <div class="service-card">
-                    <h3>Corte Caballero / Barbería</h3>
-                    <p>Corte personalizado adaptado a estructura facial, lavado con productos específicos y acabado profesional.</p>
-                    <div class="service-price">Consultar tarifa</div>
-                </div>
-                <div class="service-card">
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=600&q=80" alt="Arreglo de Barba" class="card-img">
+                <div class="card-body">
                     <h3>Arreglo de Barba</h3>
-                    <p>Diseño, rebajado, perfilado a navaja y aplicación de aceites esenciales para una hidratación profunda.</p>
-                    <div class="service-price">Consultar tarifa</div>
+                    <p>Perfilado, rebajado y cuidado tradicional de barba con productos específicos para su hidratación y mantenimiento.</p>
                 </div>
-                <div class="service-card">
-                    <h3>Corte Señora</h3>
-                    <p>Cortes de tendencia, capas, flequillos y asesoramiento de imagen adaptado a tu tipo de cabello.</p>
-                    <div class="service-price">Consultar tarifa</div>
-                </div>
-                <div class="service-card">
-                    <h3>Coloración y Mechas</h3>
-                    <p>Tintes, baños de color, mechas tradicionales y técnicas avanzadas (balayage, babylights) con máximo cuidado.</p>
-                    <div class="service-price">Consultar tarifa</div>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=600&q=80" alt="Estilismo y Cuidado Capilar" class="card-img">
+                <div class="card-body">
+                    <h3>Estilismo Capilar</h3>
+                    <p>Asesoramiento de imagen personalizado, lavados con productos profesionales y acabados impecables.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- GALLERY -->
-    <section class="gallery" id="gallery">
-        <div class="container">
-            <h2 class="section-title">Trabajos Recientes</h2>
-            <p class="section-subtitle">Una muestra de nuestro día a día</p>
-            
-            <div class="gallery-grid">
-                <div class="gallery-item">[Foto Trabajo 1]</div>
-                <div class="gallery-item">[Foto Trabajo 2]</div>
-                <div class="gallery-item">[Foto Trabajo 3]</div>
-                <div class="gallery-item">[Foto Trabajo 4]</div>
+    <!-- 5. Galería -->
+    <section id="galeria">
+        <div class="section-title">
+            <h2>Galería de Trabajos</h2>
+            <p>Una muestra de nuestro espacio y dedicación</p>
+        </div>
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1512861517700-1111005a9643?auto=format&fit=crop&w=800&q=80" alt="Interior del salón de peluquería">
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1532712938310-34cb3982ef74?auto=format&fit=crop&w=800&q=80" alt="Herramientas profesionales de barbería">
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=800&q=80" alt="Detalle de corte y arreglo personal">
+            </div>
+        </div>
+        <p class="gallery-note">* Fotografías de carácter ilustrativo para mostrar nuestros servicios.</p>
+    </section>
+
+    <!-- 6. Ventajas del establecimiento -->
+    <section class="advantages">
+        <div class="section-title">
+            <h2>¿Por qué elegirnos?</h2>
+        </div>
+        <div class="advantages-grid">
+            <div class="advantage-item">
+                <h3>Experiencia</h3>
+                <p>Años de trayectoria profesional ofreciendo un servicio de máxima calidad en Boadilla del Monte.</p>
+            </div>
+            <div class="advantage-item">
+                <h3>Trato Personalizado</h3>
+                <p>Escuchamos lo que necesitas y te asesoramos para conseguir el resultado que buscas.</p>
+            </div>
+            <div class="advantage-item">
+                <h3>Ambiente Cercano</h3>
+                <p>Un espacio cómodo y agradable donde te sentirás como en casa desde el primer momento.</p>
             </div>
         </div>
     </section>
 
-    <!-- TESTIMONIALS (Ejemplos editables) -->
-    <section class="testimonials" id="testimonials">
-        <div class="container">
-            <h2 class="section-title">Lo que dicen de nosotros</h2>
-            <p class="section-subtitle">Ejemplos de opiniones de clientes</p>
-            
-            <div class="testimonials-grid">
-                <div class="testimonial-card">
-                    <span class="testimonial-tag">Ejemplo de reseña</span>
-                    <p>"Trato excelente y profesionalidad inigualable. Goyo entiende perfectamente lo que buscas desde el primer momento. Totalmente recomendable."</p>
-                    <div class="testimonial-author">— Cliente S. (Ejemplo)</div>
-                </div>
-                <div class="testimonial-card">
-                    <span class="testimonial-tag">Ejemplo de reseña</span>
-                    <p>"El mejor sitio de Boadilla para cortar el pelo y arreglar la barba. El ambiente es muy agradable y el servicio impecable."</p>
-                    <div class="testimonial-author">— Cliente M. (Ejemplo)</div>
-                </div>
-                <div class="testimonial-card">
-                    <span class="testimonial-tag">Ejemplo de reseña</span>
-                    <p>"Cercanía, profesionalidad y muy buenos productos. Se nota la experiencia y la pasión por el trabajo bien hecho."</p>
-                    <div class="testimonial-author">— Cliente A. (Ejemplo)</div>
-                </div>
+    <!-- 7. Ubicación con mapa integrado -->
+    <section id="ubicacion">
+        <div class="section-title">
+            <h2>Dónde Encontrarnos</h2>
+            <p>Visítanos en Boadilla del Monte</p>
+        </div>
+        <div class="location-container">
+            <div class="location-info">
+                <h3>Goyo López</h3>
+                <p>Ubicados en <strong>Boadilla del Monte</strong>, Madrid. Acércate a conocernos o ponte en contacto con nosotros para reservar tu cita previa y evitar esperas.</p>
+                <a href="https://maps.google.com/?q=Goyo+Lopez+Boadilla+del+Monte" target="_blank" rel="noopener" class="btn">Ver en Google Maps</a>
+            </div>
+            <div>
+                <iframe class="map-frame" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3037.387146584065!2d-3.88241!3d40.4071!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd418fe3b2a0c7c7%3A0x0!2sBoadilla+del+Monte%2C+Madrid!5e0!3m2!1ses!2ses!4v1620000000000!5m2!1ses!2ses" allowfullscreen="" loading="lazy"></iframe>
             </div>
         </div>
     </section>
 
-    <!-- CONTACT & LOCATION -->
-    <section class="contact" id="contact">
-        <div class="container">
-            <h2 class="section-title">Ubicación y Contacto</h2>
-            <p class="section-subtitle">Ven a visitarnos en Boadilla del Monte</p>
-            
-            <div class="contact-grid">
-                <div class="contact-info">
-                    <h3>Información</h3>
-                    
-                    <div class="contact-detail">
-                        <span>📍</span>
-                        <div>
-                            <strong>Dirección</strong>
-                            Boadilla del Monte, Madrid (Consulta exacta por teléfono)
-                        </div>
-                    </div>
-
-                    <div class="contact-detail">
-                        <span>📞</span>
-                        <div>
-                            <strong>Teléfono de Citas</strong>
-                            <a href="tel:916320412" style="color: var(--primary);">916 32 04 12</a>
-                        </div>
-                    </div>
-
-                    <div class="contact-detail">
-                        <span>🕒</span>
-                        <div>
-                            <strong>Horario Habitual</strong>
-                            Lunes a Sábado (Consulte horarios específicos y disponibilidad de cita previa por teléfono).
-                        </div>
-                    </div>
-
-                    <div style="margin-top: 2rem;">
-                        <a href="tel:916320412" class="btn">Llamar para Cita Previa</a>
-                    </div>
-                </div>
-
-                <div class="map-container">
-                    [Espacio reservado para mapa de ubicación interactivo / Google Maps]
-                </div>
+    <!-- 8. Contacto & 9. Horarios -->
+    <section id="contacto" class="contact-section">
+        <div class="section-title">
+            <h2>Contacto y Cita Previa</h2>
+            <p>Llámanos para reservar tu cita</p>
+        </div>
+        <div class="contact-grid">
+            <div class="contact-card">
+                <h3>Llámanos</h3>
+                <p>Atención directa por teléfono para reservas y consultas:</p>
+                <a href="tel:916320412" class="phone-big">916 32 04 12</a>
+                <br>
+                <a href="tel:916320412" class="btn">Llamar Ahora</a>
+            </div>
+            <div class="contact-card">
+                <h3>Horarios</h3>
+                <p>Consulta nuestros horarios disponibles:</p>
+                <br>
+                <p><em>Para garantizar una atención óptima y sin esperas, recomendamos solicitar cita previa por teléfono. Horarios sujetos a confirmación directa en el establecimiento.</em></p>
             </div>
         </div>
     </section>
 
-    <!-- FOOTER -->
+    <!-- 10. Pie de página profesional -->
     <footer>
-        <div class="container">
-            <p>&copy; <span id="currentYear"></span> Goyo López. Todos los derechos reservados.</p>
-            <p>Peluquería y Barbería en Boadilla del Monte.</p>
-        </div>
+        <p>&copy; <span id="year">2026</span> Goyo López - Peluquería y Barbería en Boadilla del Monte. Todos los derechos reservados.</p>
     </footer>
 
-    <!-- SCRIPT SIMPLE -->
     <script>
         // Actualizar año automáticamente
-        document.getElementById('currentYear').textContent = new Date().getFullYear();
-
-        // Menú móvil hamburguesa
-        const hamburgerBtn = document.getElementById('hamburgerBtn');
-        const navMenu = document.getElementById('navMenu');
-
-        hamburgerBtn.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
-        });
-
-        // Cerrar menú al hacer clic en un enlace (móvil)
-        document.querySelectorAll('.nav-link').forEach(link => {
-            link.addEventListener('click', () => {
-                navMenu.classList.remove('active');
-            });
-        });
+        document.getElementById('year').textContent = new Date().getFullYear();
     </script>
 </body>
 </html>
