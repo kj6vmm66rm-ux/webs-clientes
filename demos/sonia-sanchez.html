@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sonia Sánchez | Peluquería y Barbería en Boadilla del Monte</title>
+    <style>
+        :root {
+            --primary: #1a1a1a;
+            --secondary: #c5a059;
+            --secondary-dark: #a38243;
+            --bg-light: #f9f9f9;
+            --white: #ffffff;
+            --text-dark: #333333;
+            --text-muted: #666666;
+            --border-color: #e5e5e5;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            color: var(--text-dark);
+            background-color: var(--white);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* 1. Cabecera */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(26, 26, 26, 0.95);
+            backdrop-filter: blur(5px);
+            color: var(--white);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(197, 160, 89, 0.2);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            color: var(--white);
+        }
+
+        .logo span {
+            color: var(--secondary);
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .nav-link {
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .nav-link:hover {
+            color: var(--secondary);
+        }
+
+        .nav-cta {
+            background-color: var(--secondary);
+            color: var(--primary);
+            padding: 10px 20px;
+            border-radius: 4px;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .nav-cta:hover {
+            background-color: var(--secondary-dark);
+            color: var(--white);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--white);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* 2. Portada visual */
+        .hero {
+            height: 100vh;
+            min-height: 600px;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: var(--white);
+            padding-top: 80px;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            letter-spacing: -0.5px;
+        }
+
+        .hero h1 span {
+            color: var(--secondary);
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            margin-bottom: 30px;
+            color: #e0e0e0;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--secondary);
+            color: var(--primary);
+            padding: 14px 32px;
+            font-size: 1rem;
+            font-weight: 700;
+            border-radius: 4px;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: var(--secondary-dark);
+            color: var(--white);
+            transform: translateY(-2px);
+        }
+
+        /* Secciones generales */
+        section {
+            padding: 100px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 2.25rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 3px;
+            background-color: var(--secondary);
+        }
+
+        .section-title p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* 3. Presentación */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+
+        .about-text p {
+            color: var(--text-muted);
+            margin-bottom: 20px;
+        }
+
+        .about-image img {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        /* 4. Servicios */
+        .services {
+            background-color: var(--bg-light);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            transition: var(--transition);
+            border: 1px solid var(--border-color);
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .service-img {
+            height: 200px;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .service-content {
+            padding: 25px;
+        }
+
+        .service-content h3 {
+            font-size: 1.25rem;
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+
+        .service-content p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+        }
+
+        /* 5. Galería */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 20px;
+        }
+
+        .gallery-item {
+            position: relative;
+            height: 300px;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .gallery-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            color: var(--white);
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        /* 6. Ventajas */
+        .advantages {
+            background-color: var(--primary);
+            color: var(--white);
+        }
+
+        .advantages .section-title h2 {
+            color: var(--white);
+        }
+
+        .advantages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .advantage-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 30px;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .advantage-card:hover {
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .advantage-icon {
+            font-size: 2.5rem;
+            color: var(--secondary);
+            margin-bottom: 20px;
+        }
+
+        .advantage-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        .advantage-card p {
+            color: #b0b0b0;
+            font-size: 0.95rem;
+        }
+
+        /* 7 y 8. Ubicación y Contacto */
+        .contact-section {
+            background-color: var(--bg-light);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: start;
+        }
+
+        .contact-info-box {
+            background: var(--white);
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            border: 1px solid var(--border-color);
+        }
+
+        .contact-info-item {
+            margin-bottom: 25px;
+        }
+
+        .contact-info-item h4 {
+            font-size: 1.1rem;
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+
+        .contact-info-item p {
+            color: var(--text-muted);
+        }
+
+        .map-container {
+            width: 100%;
+            height: 450px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            border: 1px solid var(--border-color);
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        /* 9. Horarios */
+        .hours-notice {
+            background: var(--white);
+            padding: 20px;
+            border-left: 4px solid var(--secondary);
+            margin-top: 20px;
+            border-radius: 0 8px 8px 0;
+            border-top: 1px solid var(--border-color);
+            border-right: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .hours-notice h4 {
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+
+        .hours-notice p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin: 0;
+        }
+
+        /* 10. Pie de página */
+        footer {
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 40px 0;
+            text-align: center;
+            border-top: 1px solid rgba(197, 160, 89, 0.2);
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .footer-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .footer-logo span {
+            color: var(--secondary);
+        }
+
+        .footer-text {
+            color: #b0b0b0;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 968px) {
+            .about-grid,
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero h1 {
+                font-size: 2.25rem;
+            }
+
+            .nav-menu {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 1. Cabecera con nombre y navegación -->
+    <header>
+        <div class="container header-container">
+            <a href="#" class="logo">Sonia <span>Sánchez</span></a>
+            <nav class="nav-menu">
+                <a href="#inicio" class="nav-link">Inicio</a>
+                <a href="#nosotros" class="nav-link">Nosotros</a>
+                <a href="#servicios" class="nav-link">Servicios</a>
+                <a href="#galeria" class="nav-link">Galería</a>
+                <a href="#contacto" class="nav-link">Contacto</a>
+                <a href="#contacto" class="nav-cta">Reservar Cita</a>
+            </nav>
+            <button class="mobile-menu-btn" aria-label="Menú">&#9776;</button>
+        </div>
+    </header>
+
+    <!-- 2. Portada visual con fotografía y botón de contacto -->
+    <section id="inicio" class="hero">
+        <div class="container hero-content">
+            <h1>Peluquería y Barbería <span>Sonia Sánchez</span></h1>
+            <p>Elegancia, estilo y cuidado personal profesional en el corazón de Boadilla del Monte.</p>
+            <a href="#contacto" class="btn">Contactar y Reservar</a>
+        </div>
+    </section>
+
+    <!-- 3. Presentación del negocio -->
+    <section id="nosotros">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-text">
+                    <h3>Pasión por el detalle y el cuidado de tu imagen</h3>
+                    <p>En Sonia Sánchez unimos la experiencia en peluquería y barbería para ofrecerte un servicio integral adaptado a tus necesidades. Cuidamos cada detalle para garantizar que tu visita sea una experiencia de bienestar y satisfacción.</p>
+                    <p>Ubicados en una de las zonas más accesibles de Boadilla del Monte, trabajamos con productos de primera calidad y las últimas tendencias en corte, color y estilismo para toda la familia.</p>
+                    <a href="#contacto" class="btn" style="margin-top: 10px;">Visítanos</a>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?auto=format&fit=crop&w=800&q=80" alt="Interior del salón de peluquería y barbería Sonia Sánchez">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Servicios en tarjetas visuales -->
+    <section id="servicios" class="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Nuestros Servicios</h2>
+                <p>Soluciones profesionales en peluquería y barbería adaptadas a tu estilo personal.</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <img src="https://images.unsplash.com/photo-1582095133179-bfd08e2fc6b3?auto=format&fit=crop&w=600&q=80" alt="Corte y Estilismo" class="service-img">
+                    <div class="service-content">
+                        <h3>Corte y Estilismo</h3>
+                        <p>Cortes modernos, clásicos y personalizados según la morfología de tu rostro y tus preferencias.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=600&q=80" alt="Barbería Tradicional" class="service-img">
+                    <div class="service-content">
+                        <h3>Barbería y Afeitado</h3>
+                        <p>Cuidado de barba, arreglos precisos y afeitado tradicional con toalla caliente para un acabado impecable.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <img src="https://images.unsplash.com/photo-1562322140-8baeececf3df?auto=format&fit=crop&w=600&q=80" alt="Coloración y Tratamientos" class="service-img">
+                    <div class="service-content">
+                        <h3>Coloración y Tratamientos</h3>
+                        <p>Tintes, mechas, baños de color y tratamientos capilares nutritivos para revitalizar la salud de tu cabello.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. Galería con al menos 3 fotografías -->
+    <section id="galeria">
+        <div class="container">
+            <div class="section-title">
+                <h2>Galería de Trabajos</h2>
+                <p>Una muestra de nuestros acabados y estilo en el salón.</p>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1599351431202-1e0f0137899a?auto=format&fit=crop&w=800&q=80" alt="Trabajo de barbería profesional">
+                    <div class="gallery-caption">Corte y arreglo de barba</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1560869713-7d0a29430803?auto=format&fit=crop&w=800&q=80" alt="Estilismo y coloración capilar">
+                    <div class="gallery-caption">Coloración y estilismo avanzado</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=800&q=80" alt="Ambiente del salón de belleza">
+                    <div class="gallery-caption">Instalaciones modernas y cuidadas</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. Ventajas del establecimiento -->
+    <section class="advantages">
+        <div class="container">
+            <div class="section-title">
+                <h2>¿Por qué elegirnos?</h2>
+                <p>Compromiso con la excelencia y la satisfacción de quienes confían en nosotros.</p>
+            </div>
+            <div class="advantages-grid">
+                <div class="advantage-card">
+                    <div class="advantage-icon">⭐</div>
+                    <h3>Profesionalidad</h3>
+                    <p>Personal altamente cualificado con amplia experiencia en las últimas tendencias del sector.</p>
+                </div>
+                <div class="advantage-card">
+                    <div class="advantage-icon">🌿</div>
+                    <h3>Primeras Marcas</h3>
+                    <p>Utilizamos productos de alta gama que respetan y cuidan la salud de tu cabello y piel.</p>
+                </div>
+                <div class="advantage-card">
+                    <div class="advantage-icon">📍</div>
+                    <h3>Excelente Ubicación</h3>
+                    <p>Situados en Av. Siglo XXI, en una zona de fácil acceso en Boadilla del Monte.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7 y 8. Ubicación y Contacto -->
+    <section id="contacto" class="contact-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Ubicación y Contacto</h2>
+                <p>Visítanos en nuestro salón o ponte en contacto para resolver cualquier duda.</p>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-info-box">
+                    <div class="contact-info-item">
+                        <h4>Dirección</h4>
+                        <p>Av. Siglo XXI, 18, 28660 Boadilla del Monte, Madrid</p>
+                    </div>
+                    <div class="contact-info-item">
+                        <h4>Teléfono</h4>
+                        <p>Consulta y reserva previa por teléfono disponible (ver información local)</p>
+                    </div>
+                    <div class="contact-info-item">
+                        <h4>Redes Sociales</h4>
+                        <p>Síguenos en Instagram para ver nuestros últimos trabajos y novedades.</p>
+                    </div>
+                    
+                    <!-- 9. Horarios, solo si están verificados -->
+                    <div class="hours-notice">
+                        <h4>Horario de atención</h4>
+                        <p>Consulte nuestros horarios actualizados contactando directamente con el establecimiento.</p>
+                    </div>
+                </div>
+
+                <div class="map-container">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3037.2655075079637!2d-3.877478623456381!3d40.42485457143789!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd41fca9456789bf%3A0x123456789abcdef!2sAv.%20Siglo%20XXI%2C%2018%2C%2028660%20Boadilla%20del%20Monte%2C%20Madrid!5e0!3m2!1ses!2ses!4v1700000000000!5m2!1ses!2ses" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Mapa de ubicación Sonia Sánchez en Boadilla del Monte"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 10. Pie de página profesional -->
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-logo">Sonia <span>Sánchez</span></div>
+            <p class="footer-text">Peluquería y Barbería en Boadilla del Monte, Madrid. Todos los derechos reservados.</p>
+            <p class="footer-text" style="font-size: 0.8rem; opacity: 0.7;">Av. Siglo XXI, 18, 28660 Boadilla del Monte, Madrid</p>
+        </div>
+    </footer>
+
+</body>
+</html>
