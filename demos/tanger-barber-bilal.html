@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tanger Barber Bilal | Peluquería y Barbería en Boadilla del Monte</title>
+    <meta name="description" content="Peluquería y barbería masculina en Boadilla del Monte, Madrid. Cortes de pelo clásicos, modernos y arreglo de barba profesional.">
+    <style>
+        :root {
+            --primary-color: #111111;
+            --accent-color: #c5a059;
+            --accent-hover: #b38f48;
+            --bg-light: #f9f9f9;
+            --bg-dark: #1a1a1a;
+            --text-main: #333333;
+            --text-light: #ffffff;
+            --text-muted: #777777;
+            --border-color: #e0e0e0;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            color: var(--text-main);
+            background-color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* 1. Cabecera */
+        header {
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+        }
+
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            color: var(--text-light);
+            text-transform: uppercase;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-link {
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: var(--transition);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-link:hover {
+            color: var(--accent-color);
+        }
+
+        /* 2. Portada visual */
+        .hero {
+            position: relative;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
+            color: var(--text-light);
+            text-align: center;
+            padding: 120px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 80vh;
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            font-weight: 800;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .hero h1 span {
+            color: var(--accent-color);
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            color: #ddd;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: var(--primary-color);
+            padding: 12px 30px;
+            border-radius: 4px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: var(--accent-hover);
+            transform: translateY(-2px);
+        }
+
+        /* Secciones comunes */
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 2rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+
+        .section-title p {
+            color: var(--text-muted);
+            font-size: 1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* 3. Presentación del negocio */
+        .about {
+            background-color: var(--bg-light);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        @media(min-width: 768px) {
+            .about-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .about-text h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+
+        .about-text p {
+            margin-bottom: 15px;
+            color: var(--text-main);
+        }
+
+        .about-image img {
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        /* 4. Servicios en tarjetas visuales */
+        .services-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+        }
+
+        @media(min-width: 768px) {
+            .services-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .service-card {
+            background: var(--text-light);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 30px;
+            text-align: center;
+            transition: var(--transition);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+            border-color: var(--accent-color);
+        }
+
+        .service-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+
+        .service-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* 5. Galería */
+        .gallery {
+            background-color: var(--bg-light);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        @media(min-width: 768px) {
+            .gallery-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .gallery-item {
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        /* 6. Ventajas */
+        .features-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+        }
+
+        @media(min-width: 768px) {
+            .features-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .feature-box {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .feature-box h3 {
+            font-size: 1.15rem;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+
+        .feature-box p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* 7. Ubicación y 8. Contacto */
+        .location-contact {
+            background-color: var(--bg-light);
+        }
+
+        .lc-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+        }
+
+        @media(min-width: 768px) {
+            .lc-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .contact-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+
+        .contact-detail {
+            margin-bottom: 15px;
+            font-size: 1rem;
+            color: var(--text-main);
+        }
+
+        .contact-detail strong {
+            color: var(--primary-color);
+            display: inline-block;
+            width: 90px;
+        }
+
+        .map-container {
+            width: 100%;
+            height: 350px;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        .map-fallback {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            background-color: #e9ecef;
+            padding: 20px;
+            text-align: center;
+        }
+
+        /* 9. Horarios */
+        .hours-section {
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            text-align: center;
+        }
+
+        .hours-section .section-title h2 {
+            color: var(--text-light);
+        }
+
+        .hours-section .section-title p {
+            color: #aaa;
+        }
+
+        .hours-notice {
+            max-width: 600px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 30px;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .hours-notice p {
+            font-size: 1.05rem;
+            color: #ddd;
+            margin-bottom: 15px;
+        }
+
+        /* 10. Pie de página */
+        footer {
+            background-color: #0b0b0b;
+            color: #888;
+            padding: 40px 0 20px;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        .footer-content {
+            margin-bottom: 20px;
+        }
+
+        .footer-content p {
+            margin-bottom: 5px;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #222;
+            padding-top: 20px;
+            color: #666;
+            font-size: 0.85rem;
+        }
+
+        /* Utilidades responsive para navegación móvil simple */
+        @media(max-width: 768px) {
+            .nav-menu {
+                display: none; /* Versión simplificada mobile-first sin JS complejo */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 1. Cabecera con nombre y navegación -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">Tanger Barber <span>Bilal</span></div>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="#inicio" class="nav-link">Inicio</a></li>
+                    <li><a href="#sobre-nosotros" class="nav-link">Nosotros</a></li>
+                    <li><a href="#servicios" class="nav-link">Servicios</a></li>
+                    <li><a href="#galeria" class="nav-link">Galería</a></li>
+                    <li><a href="#ubicacion" class="nav-link">Ubicación</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- 2. Portada visual con fotografía y botón de contacto -->
+    <section id="inicio" class="hero">
+        <div class="hero-content">
+            <h1>Tanger Barber <span>Bilal</span></h1>
+            <p>Peluquería y barbería masculina en Boadilla del Monte. Estilo clásico y tendencias actuales para el cuidado de tu imagen.</p>
+            <a href="#ubicacion" class="btn">Visítanos o Contacta</a>
+        </div>
+    </section>
+
+    <!-- 3. Presentación del negocio -->
+    <section id="sobre-nosotros" class="about">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-text">
+                    <h3>Tradición y estilo en Boadilla del Monte</h3>
+                    <p>En <strong>Tanger Barber Bilal</strong> nos dedicamos al cuidado de la imagen masculina ofreciendo un servicio profesional y cercano. Cuidamos cada detalle para garantizar que cada corte de pelo y arreglo de barba cumpla con las expectativas de nuestros clientes.</p>
+                    <p>Ubicados en pleno corazón de Boadilla del Monte, combinamos técnicas tradicionales con las últimas tendencias del sector en un ambiente cómodo y pensado para el hombre actual.</p>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1585747860715-2ba37e788b70?auto=format&fit=crop&w=800&q=80" alt="Interior de la barbería Tanger Barber Bilal">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Servicios en tarjetas visuales -->
+    <section id="servicios" class="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Nuestros Servicios</h2>
+                <p>Soluciones profesionales para el cuidado del cabello y la barba</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>Corte de Cabello</h3>
+                    <p>Cortes clásicos, modernos, degradados (fade) y personalizados según la estructura de tu rostro y estilo personal.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Arreglo de Barba</h3>
+                    <p>Perfilado, rebajado y cuidado de barba con técnicas tradicionales, toalla caliente y productos específicos.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Corte y Barba</h3>
+                    <p>Servicio completo integral para lucir una imagen impecable, cuidando al máximo la armonía entre cabello y barba.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. Galería con al menos 3 fotografías -->
+    <section id="galeria" class="gallery">
+        <div class="container">
+            <div class="section-title">
+                <h2>Galería de Trabajos</h2>
+                <p>Muestra visual de nuestros cortes, estilos y espacio de trabajo</p>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1621605815971-fbc98d665033?auto=format&fit=crop&w=600&q=80" alt="Resultado de corte de pelo moderno en peluquería masculina">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=600&q=80" alt="Herramientas profesionales de barbería">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1599351431202-1e0f0137899a?auto=format&fit=crop&w=600&q=80" alt="Arreglo profesional de barba y perfilado">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. Ventajas del establecimiento -->
+    <section class="features">
+        <div class="container">
+            <div class="section-title">
+                <h2>¿Por qué elegirnos?</h2>
+                <p>Comprometidos con la calidad y la satisfacción de nuestros clientes</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-box">
+                    <h3>Profesionalidad</h3>
+                    <p>Experiencia y atención al detalle en cada servicio de peluquería y barbería.</p>
+                </div>
+                <div class="feature-box">
+                    <h3>Ubicación Céntrica</h3>
+                    <p>Situados en una zona accesible de Boadilla del Monte con fácil llegada.</p>
+                </div>
+                <div class="feature-box">
+                    <h3>Ambiente Acogedor</h3>
+                    <p>Un espacio diseñado para tu comodidad y bienestar durante el servicio.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 9. Horarios (Solo si están verificados - En este caso se indica honestamente) -->
+    <section class="hours-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Horarios de Apertura</h2>
+                <p>Consulte nuestra disponibilidad</p>
+            </div>
+            <div class="hours-notice">
+                <p>Actualmente no disponemos de un horario oficial verificado publicado en este canal.</p>
+                <p>Te recomendamos acudir directamente al establecimiento o consultar in situ en C. de Calvo Sotelo, 9 para conocer la disponibilidad actual.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. Ubicación y 8. Contacto -->
+    <section id="ubicacion" class="location-contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Ubicación y Contacto</h2>
+                <p>Encuéntranos en Boadilla del Monte</p>
+            </div>
+            <div class="lc-grid">
+                <div class="contact-info">
+                    <h3>Información del Establecimiento</h3>
+                    <div class="contact-detail">
+                        <strong>Dirección:</strong> C. de Calvo Sotelo, 9, 28660 Boadilla del Monte, Madrid
+                    </div>
+                    <div class="contact-detail">
+                        <strong>Teléfono:</strong> No disponible en este momento
+                    </div>
+                    <div class="contact-detail">
+                        <strong>Instagram:</strong> No disponible
+                    </div>
+                    <p style="margin-top: 20px; color: var(--text-muted);">
+                        Te invitamos a visitarnos directamente en nuestro local para atenderte de forma personalizada.
+                    </p>
+                </div>
+                <div class="map-container">
+                    <!-- Mapa integrado mediante iframe de Google Maps basado en la dirección oficial -->
+                    <iframe 
+                        src="https://maps.google.com/maps?q=C.%20de%20Calvo%20Sotelo,%209,%2028660%20Boadilla%20del%20Monte,%20Madrid&t=&z=15&ie=UTF8&iwloc=&output=embed" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade"
+                        title="Mapa de ubicación de Tanger Barber Bilal en Boadilla del Monte">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 10. Pie de página profesional -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <p><strong>Tanger Barber Bilal</strong></p>
+                <p>Peluquería y Barbería en C. de Calvo Sotelo, 9, 28660 Boadilla del Monte, Madrid</p>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Tanger Barber Bilal. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+
+      <section id="contacto" style="padding:50px 20px;text-align:center">
+        <h2>Contacta con Tanger Barber Bilal</h2>
+        <p>Boadilla del Monte</p>
+        <p>Consulta los datos de contacto actualizados en Google Maps.</p>
+        
+        <p>Consulta los horarios actualizados antes de tu visita.</p>
+        <a href="https://www.google.com/maps/search/?api=1&query=Tanger%20Barber%20Bilal%2C%20Boadilla%20del%20Monte" target="_blank" rel="noopener noreferrer">
+          Ver negocio en Google Maps
+        </a>
+      </section>
+    
+</body>
+</html>
