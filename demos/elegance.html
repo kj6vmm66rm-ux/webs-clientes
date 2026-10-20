@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elegance | Peluquería y Estética en Boadilla del Monte</title>
+    <meta name="description" content="Salón de peluquería y estética en Boadilla del Monte, Madrid. Servicios profesionales de cuidado capilar e imagen personal.">
+    <style>
+        :root {
+            --primary: #1a1a1a;
+            --secondary: #c5a880;
+            --accent: #f9f6f0;
+            --text: #4a4a4a;
+            --text-light: #777777;
+            --bg-white: #ffffff;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            color: var(--text);
+            background-color: var(--bg-white);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* 1. Cabecera */
+        header {
+            position: sticky;
+            top: 0;
+            background-color: var(--bg-white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: var(--primary);
+            text-transform: uppercase;
+        }
+
+        .logo span {
+            color: var(--secondary);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--primary);
+            transition: var(--transition);
+        }
+
+        nav a:hover {
+            color: var(--secondary);
+        }
+
+        .nav-cta {
+            background-color: var(--secondary);
+            color: white !important;
+            padding: 0.6rem 1.2rem;
+            border-radius: 4px;
+        }
+
+        .nav-cta:hover {
+            opacity: 0.9;
+        }
+
+        /* 2. Portada visual */
+        .hero {
+            position: relative;
+            height: 85vh;
+            min-height: 500px;
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            padding: 0 1rem;
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            letter-spacing: 1px;
+        }
+
+        .hero p {
+            font-size: clamp(1rem, 2vw, 1.25rem);
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--secondary);
+            color: white;
+            padding: 0.9rem 2rem;
+            border-radius: 4px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            transition: var(--transition);
+            text-transform: uppercase;
+            font-size: 0.9rem;
+        }
+
+        .btn:hover {
+            background-color: #b0936b;
+            transform: translateY(-2px);
+        }
+
+        /* Secciones generales */
+        section {
+            padding: 5rem 10%;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-light);
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* 3. Presentación del negocio */
+        .about {
+            background-color: var(--accent);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text h2 {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .about-text p {
+            margin-bottom: 1rem;
+            color: var(--text);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        }
+
+        /* 4. Servicios */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: var(--bg-white);
+            border: 1px solid #eaeaea;
+            border-radius: 8px;
+            padding: 2.5rem 2rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+            transition: var(--transition);
+            text-align: center;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            border-color: var(--secondary);
+        }
+
+        .service-card h3 {
+            font-size: 1.3rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .service-card p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        /* 5. Galería */
+        .gallery {
+            background-color: #fafafa;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .gallery-item {
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            height: 300px;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        /* 6. Ventajas */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            text-align: center;
+            padding: 2rem 1rem;
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--secondary);
+            margin-bottom: 1rem;
+        }
+
+        .feature-card h3 {
+            font-size: 1.1rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .feature-card p {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        /* 7 y 8. Ubicación y Contacto */
+        .contact-section {
+            background-color: var(--accent);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .contact-info h2 {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-detail {
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-detail strong {
+            display: block;
+            color: var(--primary);
+            margin-bottom: 0.3rem;
+        }
+
+        .contact-detail p, .contact-detail a {
+            color: var(--text);
+            font-size: 1.05rem;
+        }
+
+        .contact-detail a:hover {
+            color: var(--secondary);
+        }
+
+        .map-container {
+            width: 100%;
+            height: 400px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        /* 9. Horarios */
+        .hours-section {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+            background: var(--bg-white);
+            border: 1px solid #eaeaea;
+            padding: 3rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+        }
+
+        .hours-section h3 {
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+        }
+
+        .hours-note {
+            color: var(--text-light);
+            font-style: italic;
+            font-size: 0.95rem;
+            margin-top: 1rem;
+        }
+
+        /* 10. Pie de página */
+        footer {
+            background-color: var(--primary);
+            color: white;
+            text-align: center;
+            padding: 3rem 10%;
+            font-size: 0.9rem;
+        }
+
+        footer p {
+            color: #aaaaaa;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav {
+                display: none; /* Simplificación para móvil puro sin JS externo */
+            }
+
+            .about, .contact-section {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            section {
+                padding: 3rem 5%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 1. Cabecera -->
+    <header>
+        <div class="logo">Elegance<span>.</span></div>
+        <nav>
+            <ul>
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#nosotros">Nosotros</a></li>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#galeria">Galería</a></li>
+                <li><a href="#ubicacion">Ubicación</a></li>
+                <li><a href="#contacto" class="nav-cta">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- 2. Portada visual -->
+    <section class="hero" id="inicio">
+        <div class="hero-content">
+            <h1>Peluquería y Estética en Boadilla del Monte</h1>
+            <p>Un espacio dedicado al cuidado de tu imagen personal y bienestar en un ambiente exclusivo.</p>
+            <a href="#contacto" class="btn">Solicitar Información</a>
+        </div>
+    </section>
+
+    <!-- 3. Presentación del negocio -->
+    <section class="about" id="nosotros">
+        <div class="about-text">
+            <h2>Elegancia y profesionalidad para tu cabello y estética</h2>
+            <p>En <strong>Elegance</strong> nos enfocamos en ofrecer un servicio personalizado, adaptado a las necesidades y estilo de cada cliente. Nuestro equipo de profesionales trabaja con dedicación y productos de alta calidad para garantizar los mejores resultados.</p>
+            <p>Nos encontramos ubicados en una zona accesible de Boadilla del Monte, creando un entorno cómodo y relajante para que disfrutes de tu momento de cuidado personal.</p>
+        </div>
+        <div class="about-image">
+            <img src="https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?auto=format&fit=crop&w=800&q=80" alt="Interior del salón de peluquería y estética Elegance">
+        </div>
+    </section>
+
+    <!-- 4. Servicios en tarjetas visuales -->
+    <section id="servicios">
+        <h2 class="section-title">Nuestros Servicios</h2>
+        <p class="section-subtitle">Soluciones integrales de peluquería y estética diseñadas para resaltar tu estilo natural.</p>
+        
+        <div class="services-grid">
+            <div class="service-card">
+                <h3>Peluquería</h3>
+                <p>Cortes actuales, peinados, tratamientos capilares avanzados y técnicas de coloración adaptadas a ti.</p>
+            </div>
+            <div class="service-card">
+                <h3>Estética Facial</h3>
+                <p>Tratamientos específicos para el cuidado, limpieza y revitalización de la piel del rostro.</p>
+            </div>
+            <div class="service-card">
+                <h3>Estética Corporal</h3>
+                <p>Servicios orientados al bienestar corporal, relajación y cuidado estético general.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. Galería -->
+    <section class="gallery" id="galeria">
+        <h2 class="section-title">Galería de Trabajos</h2>
+        <p class="section-subtitle">Una muestra visual orientativa de nuestros espacios y acabados profesionales.</p>
+        
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1562322140-8baeececf3df?auto=format&fit=crop&w=600&q=80" alt="Trabajo de peluquería y estilismo capilar ilustrativo">
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1519699047748-de8e457a634e?auto=format&fit=crop&w=600&q=80" alt="Cuidado y tratamiento de cabello ilustrativo">
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=600&q=80" alt="Sesión de estética y bienestar ilustrativa">
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. Ventajas del establecimiento -->
+    <section>
+        <h2 class="section-title">¿Por qué elegirnos?</h2>
+        <p class="section-subtitle">Nos distinguimos por nuestro compromiso con la calidad y la atención al detalle.</p>
+        
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">✨</div>
+                <h3>Atención Personalizada</h3>
+                <p>Asesoramiento individualizado para entender lo que buscas y ofrecerte el mejor resultado.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🌿</div>
+                <h3>Productos de Calidad</h3>
+                <p>Trabajamos con marcas y productos profesionales que cuidan y protegen tu cabello y piel.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📍</div>
+                <h3>Ubicación Céntrica</h3>
+                <p>Situados en una zona accesible y cómoda de Boadilla del Monte con fácil llegada.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 9. Horarios (Verificados) -->
+    <section style="background-color: #fafafa;">
+        <div class="hours-section">
+            <h3>Horarios de Atención</h3>
+            <p>Actualmente no disponemos de un horario verificado publicado en esta plataforma.</p>
+            <p class="hours-note">Te invitamos a ponerte en contacto directamente con nosotros para consultar disponibilidad y concertar tu cita previa.</p>
+        </div>
+    </section>
+
+    <!-- 7 y 8. Ubicación y Contacto -->
+    <section class="contact-section" id="contacto">
+        <div class="contact-info">
+            <h2>Visítanos y Contacta</h2>
+            <div class="contact-detail">
+                <strong>Dirección</strong>
+                <p>Av. Siglo XXI, 12, Local 4<br>28660 Boadilla del Monte, Madrid</p>
+            </div>
+            <div class="contact-detail">
+                <strong>Teléfono</strong>
+                <p>Servicio telefónico no especificado. Consulta la información actualizada en nuestros canales oficiales.</p>
+            </div>
+            <div class="contact-detail">
+                <strong>Enlaces de interés</strong>
+                <p>Puedes encontrarnos en Boadilla del Monte para cualquier consulta presencial.</p>
+            </div>
+        </div>
+        
+        <div class="map-container">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3037.2882269550735!2d-3.8787756234791557!3d40.42435055532585!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd419e7a83d09a01%3A0x6e2a27ef9a6a4e32!2sAv.%20de%20Siglo%20XXI%2C%2012%2C%2028660%20Boadilla%20del%20Monte%2C%20Madrid!5e0!3m2!1ses!2ses!4v1700000000000!5m2!1ses!2ses" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Ubicación de Elegance en Boadilla del Monte"></iframe>
+        </div>
+    </section>
+
+    <!-- 10. Pie de página profesional -->
+    <footer>
+        <p>&copy; <span id="year">2024</span> Elegance. Peluquería y Estética en Boadilla del Monte, Madrid.</p>
+        <p>Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        // Actualizar automáticamente el año en el pie de página
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
