@@ -1,0 +1,504 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b1224">
+  <meta name="description" content="Diseño de páginas web modernas para negocios. Webs Pro Madrid: diseño adaptable, contacto sencillo y soluciones web desde 149 €.">
+  <title>Webs Pro Madrid | Diseño web para negocios</title>
+  <style>
+    :root {
+      --bg: #0b1224;
+      --panel: #111b32;
+      --panel-light: #172541;
+      --blue: #2563eb;
+      --electric: #60a5fa;
+      --white: #f8fafc;
+      --muted: #a8b6cc;
+      --border: rgba(148, 163, 184, .2);
+      --radius: 18px;
+      --max: 1120px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--white);
+      font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.6;
+    }
+    a { color: inherit; text-decoration: none; }
+    button, input, textarea { font: inherit; }
+    .container { width: min(var(--max), 90%); margin: auto; }
+    .muted { color: var(--muted); }
+    .blue { color: var(--electric); }
+    .section { padding: 86px 0; }
+    .section-title {
+      font-size: clamp(1.9rem, 4vw, 2.8rem);
+      line-height: 1.15;
+      letter-spacing: -.04em;
+      margin: 0 0 14px;
+    }
+    .section-intro { max-width: 650px; color: var(--muted); }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(11, 18, 36, .92);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+    }
+    nav {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+    .brand { font-weight: 800; letter-spacing: -.04em; font-size: 1.12rem; }
+    .brand-mark { color: var(--electric); }
+    .nav-links { display: flex; align-items: center; gap: 24px; font-size: .92rem; }
+    .nav-links a:not(.button):hover { color: var(--electric); }
+
+    .button {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid transparent;
+      border-radius: 11px;
+      padding: 12px 18px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform .2s, background .2s;
+    }
+    .button:hover { transform: translateY(-2px); }
+    .button-primary { background: var(--blue); color: white; }
+    .button-primary:hover { background: #1d4ed8; }
+    .button-secondary { border-color: var(--border); background: rgba(255,255,255,.03); }
+    .button-secondary:hover { background: rgba(255,255,255,.08); }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding: 100px 0 90px;
+      background:
+        radial-gradient(ellipse at 82% 20%, rgba(37,99,235,.2), transparent 42%),
+        radial-gradient(ellipse at 5% 85%, rgba(96,165,250,.08), transparent 38%);
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap: 55px;
+      align-items: center;
+    }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      color: #bfdbfe;
+      background: rgba(37,99,235,.13);
+      border: 1px solid rgba(96,165,250,.25);
+      padding: 7px 12px;
+      border-radius: 999px;
+      font-size: .84rem;
+      font-weight: 650;
+    }
+    .dot {
+      width: 7px; height: 7px; border-radius: 50%;
+      background: var(--electric);
+      box-shadow: 0 0 12px var(--electric);
+    }
+    h1 {
+      font-size: clamp(2.7rem, 6vw, 4.8rem);
+      letter-spacing: -.065em;
+      line-height: 1.03;
+      margin: 23px 0;
+    }
+    .hero-copy { color: var(--muted); font-size: 1.1rem; max-width: 590px; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+    .hero-note { color: var(--muted); font-size: .85rem; margin-top: 17px; }
+
+    .browser {
+      border: 1px solid rgba(148,163,184,.3);
+      border-radius: 18px;
+      overflow: hidden;
+      background: #101a30;
+      box-shadow: 0 30px 90px rgba(0,0,0,.35);
+      transform: perspective(1000px) rotateY(-4deg);
+    }
+    .browser-bar {
+      display: flex; align-items: center; gap: 6px;
+      padding: 13px; border-bottom: 1px solid var(--border);
+    }
+    .browser-dot { width: 8px; height: 8px; border-radius: 50%; background: #64748b; }
+    .browser-url {
+      margin-left: 10px; padding: 5px 10px; border-radius: 6px;
+      background: rgba(255,255,255,.05); color: #94a3b8;
+      font-size: .72rem; flex: 1;
+    }
+    .mockup { padding: 24px; }
+    .mockup-label { color: var(--electric); font-size: .75rem; font-weight: 800; letter-spacing: .12em; }
+    .mockup h2 { font-size: 2rem; line-height: 1.08; margin: 14px 0; letter-spacing: -.04em; }
+    .mockup p { color: var(--muted); font-size: .85rem; }
+    .mockup-blocks { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 25px; }
+    .mockup-block {
+      min-height: 85px; border: 1px solid var(--border); border-radius: 10px;
+      padding: 12px; background: linear-gradient(145deg, #18294b, #101a30);
+    }
+    .mockup-block strong { display: block; color: #dbeafe; font-size: .8rem; }
+    .mockup-block span { color: #93a4bd; font-size: .72rem; }
+
+    .trust-strip { border-block: 1px solid var(--border); background: rgba(255,255,255,.02); }
+    .trust-items { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; padding: 23px 0; }
+    .trust-item { color: #d7e2f2; font-size: .9rem; text-align: center; }
+    .trust-item span { color: var(--electric); margin-right: 7px; }
+
+    .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 35px; }
+    .card {
+      border: 1px solid var(--border); border-radius: var(--radius);
+      padding: 25px; background: linear-gradient(150deg, rgba(23,37,65,.8), rgba(17,27,50,.8));
+    }
+    .card-icon {
+      display: grid; place-items: center; width: 46px; height: 46px;
+      border-radius: 12px; background: rgba(37,99,235,.16);
+      color: var(--electric); font-size: 1.35rem; margin-bottom: 17px;
+    }
+    .card h3 { margin: 0 0 9px; font-size: 1.1rem; }
+    .card p { margin: 0; color: var(--muted); font-size: .94rem; }
+
+    .pricing-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
+    .price-card {
+      border: 1px solid rgba(96,165,250,.45); border-radius: 22px;
+      padding: 30px; background: linear-gradient(145deg, #142647, #101a30);
+      box-shadow: 0 20px 70px rgba(37,99,235,.1);
+    }
+    .price-label { color: #bfdbfe; font-size: .9rem; font-weight: 700; }
+    .price { font-size: 3.6rem; font-weight: 850; letter-spacing: -.06em; margin: 8px 0; }
+    .price small { font-size: 1rem; color: var(--muted); font-weight: 500; letter-spacing: 0; }
+    .features { list-style: none; padding: 0; margin: 24px 0; }
+    .features li { padding: 9px 0; border-bottom: 1px solid var(--border); color: #dbe5f4; }
+    .features li::before { content: "✓"; color: var(--electric); font-weight: 800; margin-right: 10px; }
+    .fine-print { font-size: .8rem; color: var(--muted); }
+
+    .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin-top: 35px; }
+    .step-number {
+      display: grid; place-items: center; width: 38px; height: 38px;
+      border-radius: 12px; background: var(--blue); font-weight: 800; margin-bottom: 16px;
+    }
+
+    .faq { max-width: 800px; margin-top: 28px; }
+    details { border-bottom: 1px solid var(--border); padding: 19px 0; }
+    summary { cursor: pointer; font-weight: 700; }
+    details p { color: var(--muted); margin-bottom: 0; }
+
+    .contact-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 40px; align-items: start; }
+    .contact-panel {
+      border: 1px solid var(--border); border-radius: var(--radius);
+      padding: 27px; background: var(--panel);
+    }
+    .contact-panel label { display: block; font-size: .88rem; font-weight: 650; margin: 14px 0 6px; }
+    .contact-panel input, .contact-panel textarea {
+      width: 100%; padding: 12px 13px; border-radius: 9px;
+      border: 1px solid #334155; background: #0b1224; color: white;
+    }
+    .contact-panel input:focus, .contact-panel textarea:focus {
+      outline: 2px solid var(--electric); outline-offset: 1px;
+    }
+    .contact-panel textarea { min-height: 110px; resize: vertical; }
+    .contact-panel .button { width: 100%; margin-top: 18px; }
+    .form-note { font-size: .8rem; color: var(--muted); }
+    .notice {
+      border: 1px solid rgba(96,165,250,.25); border-radius: 10px;
+      padding: 12px; color: #bfdbfe; background: rgba(37,99,235,.08);
+      font-size: .85rem;
+    }
+
+    footer { border-top: 1px solid var(--border); padding: 28px 0; color: var(--muted); font-size: .84rem; }
+    .footer-inner { display: flex; flex-wrap: wrap; gap: 15px; justify-content: space-between; align-items: center; }
+    .footer-links { display: flex; gap: 18px; flex-wrap: wrap; }
+    a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px solid var(--electric); outline-offset: 3px; }
+
+    @media (max-width: 800px) {
+      .hero { padding: 70px 0; }
+      .hero-grid, .pricing-wrap, .contact-grid { grid-template-columns: 1fr; }
+      .hero-grid { gap: 40px; }
+      .browser { transform: none; max-width: 520px; }
+      .cards { grid-template-columns: 1fr 1fr; }
+      .steps { grid-template-columns: 1fr; gap: 28px; }
+      .trust-items { grid-template-columns: 1fr; gap: 10px; }
+      .section { padding: 65px 0; }
+    }
+    @media (max-width: 520px) {
+      .nav-links { gap: 12px; }
+      .nav-links a:not(.button) { display: none; }
+      .nav-links .button { padding: 10px 12px; font-size: .85rem; }
+      .cards { grid-template-columns: 1fr; }
+      .price-card { padding: 22px; }
+      .price { font-size: 3rem; }
+      .hero-actions .button { width: 100%; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="container" aria-label="Navegación principal">
+      <a class="brand" href="#inicio" aria-label="Webs Pro Madrid, inicio">
+        <span class="brand-mark">W.</span> Webs Pro Madrid
+      </a>
+      <div class="nav-links">
+        <a href="#servicios">Servicios</a>
+        <a href="#proceso">Proceso</a>
+        <a href="#precio">Precio</a>
+        <a class="button button-primary" href="#contacto">Pedir presupuesto ↗</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow"><span class="dot"></span> Diseño web para negocios</div>
+          <h1>Tu negocio merece una web <span class="blue">a otro nivel.</span></h1>
+          <p class="hero-copy">
+            Creamos páginas web modernas, rápidas y adaptadas a móviles
+            para ayudarte a presentar tus servicios y facilitar que tus
+            clientes contacten contigo.
+          </p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#contacto">Quiero mi web <span aria-hidden="true">→</span></a>
+            <a class="button button-secondary" href="#servicios">Descubrir servicios</a>
+          </div>
+          <p class="hero-note">Trato directo · Diseño personalizado · Presupuesto claro</p>
+        </div>
+
+        <div class="browser" aria-label="Representación ilustrativa de una página web">
+          <div class="browser-bar">
+            <span class="browser-dot"></span><span class="browser-dot"></span><span class="browser-dot"></span>
+            <div class="browser-url">tu-negocio.es</div>
+          </div>
+          <div class="mockup">
+            <div class="mockup-label">TU MARCA · TU WEB</div>
+            <h2>Una presencia digital que habla por ti.</h2>
+            <p>Presenta tus servicios, explica qué te hace diferente y facilita el contacto desde cualquier dispositivo.</p>
+            <div class="mockup-blocks">
+              <div class="mockup-block"><strong>Diseño adaptable</strong><span>Móvil, tablet y ordenador</span></div>
+              <div class="mockup-block"><strong>Contacto sencillo</strong><span>Acciones claras para tus visitas</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="trust-strip">
+      <div class="container trust-items">
+        <div class="trust-item"><span>✓</span> Adaptada a móviles</div>
+        <div class="trust-item"><span>✓</span> Diseño enfocado en tu negocio</div>
+        <div class="trust-item"><span>✓</span> Precio explicado de antemano</div>
+      </div>
+    </div>
+
+    <section class="section" id="servicios">
+      <div class="container">
+        <h2 class="section-title">Una web pensada para <span class="blue">tu negocio.</span></h2>
+        <p class="section-intro">
+          Una buena página no solo tiene que verse bien: debe explicar qué haces,
+          transmitir confianza y ayudar a que las personas sepan cómo dar el siguiente paso.
+        </p>
+        <div class="cards">
+          <article class="card">
+            <div class="card-icon" aria-hidden="true">⌘</div>
+            <h3>Diseño personalizado</h3>
+            <p>Una presentación visual coherente con tu actividad, tus servicios y tu identidad de marca.</p>
+          </article>
+          <article class="card">
+            <div class="card-icon" aria-hidden="true">▣</div>
+            <h3>Diseño responsive</h3>
+            <p>Una experiencia adaptada a pantallas de móvil, tablet y ordenador.</p>
+          </article>
+          <article class="card">
+            <div class="card-icon" aria-hidden="true">↗</div>
+            <h3>Contacto accesible</h3>
+            <p>Botones y secciones de contacto que ayudan a tus clientes a saber cómo localizarte.</p>
+          </article>
+          <article class="card">
+            <div class="card-icon" aria-hidden="true">⚡</div>
+            <h3>Carga ligera</h3>
+            <p>Estructura sencilla, sin depender de grandes librerías para mostrar el contenido principal.</p>
+          </article>
+          <article class="card">
+            <div class="card-icon" aria-hidden="true">◎</div>
+            <h3>Contenido organizado</h3>
+            <p>Servicios, presentación y datos de contacto ordenados para facilitar la navegación.</p>
+          </article>
+          <article class="card">
+            <div class="card-icon" aria-hidden="true">＋</div>
+            <h3>Base ampliable</h3>
+            <p>Una estructura que se puede ampliar según las necesidades futuras de tu negocio.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="precio" style="background:rgba(255,255,255,.02);border-block:1px solid var(--border)">
+      <div class="container pricing-wrap">
+        <div>
+          <h2 class="section-title">Empieza con una web <span class="blue">profesional.</span></h2>
+          <p class="section-intro">
+            Una oferta inicial clara para negocios que quieren dar el paso a una
+            presencia online propia sin empezar con un proyecto complejo.
+          </p>
+          <p class="muted">Antes de confirmar el encargo, definiremos las páginas, funciones, materiales y plazos incluidos.</p>
+        </div>
+        <div class="price-card">
+          <div class="price-label">OFERTA DE LANZAMIENTO</div>
+          <div class="price">149 € <small>precio inicial</small></div>
+          <p class="muted">Para una web informativa sencilla, con alcance acordado antes de comenzar.</p>
+          <ul class="features">
+            <li>Diseño adaptable a móviles</li>
+            <li>Secciones informativas acordadas</li>
+            <li>Botones y datos de contacto proporcionados por el cliente</li>
+            <li>Publicación web según condiciones pactadas</li>
+            <li>Revisión final antes de la entrega</li>
+          </ul>
+          <a class="button button-primary" style="width:100%" href="#contacto">Consultar mi proyecto →</a>
+          <p class="fine-print">El precio final, impuestos aplicables, dominio, alojamiento, mantenimiento y revisiones se confirmarán por escrito antes de contratar.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="proceso">
+      <div class="container">
+        <h2 class="section-title">Simple desde el <span class="blue">primer paso.</span></h2>
+        <p class="section-intro">Un proceso claro, sin necesidad de llamadas para iniciar tu solicitud.</p>
+        <div class="steps">
+          <article>
+            <div class="step-number">01</div>
+            <h3>Cuéntanos tu idea</h3>
+            <p class="muted">Describe tu negocio, qué servicios ofreces y qué te gustaría conseguir con tu web.</p>
+          </article>
+          <article>
+            <div class="step-number">02</div>
+            <h3>Definimos la propuesta</h3>
+            <p class="muted">Acordamos alcance, precio, materiales necesarios y plazo antes de iniciar el trabajo.</p>
+          </article>
+          <article>
+            <div class="step-number">03</div>
+            <h3>Diseño y entrega</h3>
+            <p class="muted">Creamos la página acordada y comprobamos su funcionamiento antes de entregarla.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="preguntas" style="background:rgba(255,255,255,.02)">
+      <div class="container">
+        <h2 class="section-title">Preguntas <span class="blue">frecuentes.</span></h2>
+        <div class="faq">
+          <details>
+            <summary>¿Tengo que saber de programación?</summary>
+            <p>No. Recopilamos la información de tu negocio y acordamos contigo la estructura y el contenido de la web.</p>
+          </details>
+          <details>
+            <summary>¿La web funcionará en móviles?</summary>
+            <p>El diseño se prepara para adaptarse a móviles, tablets y ordenadores. Revisaremos el resultado antes de entregarlo.</p>
+          </details>
+          <details>
+            <summary>¿El precio incluye dominio y mantenimiento?</summary>
+            <p>No se incluyen automáticamente. Confirmaremos por escrito cualquier coste adicional de dominio, alojamiento, mantenimiento o servicios externos antes de contratar.</p>
+          </details>
+          <details>
+            <summary>¿Cuánto se tarda?</summary>
+            <p>El plazo dependerá del alcance del proyecto y de cuándo recibamos los materiales necesarios. Lo acordaremos antes de empezar.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contacto">
+      <div class="container contact-grid">
+        <div>
+          <h2 class="section-title">Hablemos de tu <span class="blue">proyecto.</span></h2>
+          <p class="section-intro">
+            Cuéntanos qué hace tu negocio y qué necesitas. Podremos valorar
+            el proyecto y preparar una propuesta sin compromiso.
+          </p>
+          <div class="notice" style="margin-top:24px">
+            Este formulario es una plantilla visual. Antes de recibir solicitudes reales,
+            hay que conectarlo a un servicio de formularios o a un sistema propio.
+          </div>
+        </div>
+        <form class="contact-panel" id="contact-form">
+          <h3 style="margin-top:0">Solicita información</h3>
+          <label for="nombre">Nombre</label>
+          <input id="nombre" name="nombre" autocomplete="name" required maxlength="100" placeholder="Tu nombre">
+          <label for="negocio">Nombre del negocio</label>
+          <input id="negocio" name="negocio" required maxlength="120" placeholder="Tu empresa">
+          <label for="email">Correo electrónico</label>
+          <input id="email" name="email" type="email" autocomplete="email" required maxlength="200" placeholder="tu@empresa.com">
+          <label for="mensaje">¿Qué tipo de web necesitas?</label>
+          <textarea id="mensaje" name="mensaje" required maxlength="2000" placeholder="Cuéntanos brevemente tu proyecto"></textarea>
+          <button class="button button-primary" type="submit">Preparar solicitud →</button>
+          <p class="form-note">Al continuar se abrirá tu aplicación de correo con el mensaje preparado. Revisa y envía el correo manualmente.</p>
+          <p id="form-status" class="form-note" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <a class="brand" href="#inicio"><span class="brand-mark">W.</span> Webs Pro Madrid</a>
+      <div>© <span id="year"></span> Webs Pro Madrid</div>
+      <div class="footer-links">
+        <a href="#servicios">Servicios</a>
+        <a href="#contacto">Contacto</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    document.getElementById("contact-form").addEventListener("submit", function (event) {
+      event.preventDefault();
+
+      const data = new FormData(event.currentTarget);
+      const nombre = String(data.get("nombre") || "").trim();
+      const negocio = String(data.get("negocio") || "").trim();
+      const email = String(data.get("email") || "").trim();
+      const mensaje = String(data.get("mensaje") || "").trim();
+
+      // Sustituye esta dirección por el correo profesional que vayas a utilizar.
+      const correoDestino = "CAMBIA_ESTO_POR_TU_CORREO";
+
+      if (!correoDestino || correoDestino === "CAMBIA_ESTO_POR_TU_CORREO") {
+        document.getElementById("form-status").textContent =
+          "Formulario de demostración: configura tu correo de destino antes de recibir solicitudes.";
+        return;
+      }
+
+      const asunto = encodeURIComponent("Solicitud web - " + negocio);
+      const cuerpo = encodeURIComponent(
+        "Nombre: " + nombre + "\n" +
+        "Negocio: " + negocio + "\n" +
+        "Correo: " + email + "\n\n" +
+        "Proyecto:\n" + mensaje
+      );
+
+      window.location.href =
+        "mailto:" + correoDestino + "?subject=" + asunto + "&body=" + cuerpo;
+    });
+  </script>
+</body>
+</html>
